@@ -33,6 +33,18 @@
         		<value>Modele.Record</value>
 			</list>
 		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>	
+			</props>
+		</property>
 	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<tx:annotation-driven transaction-manager="transactionManager" mode="aspectj"/>
+	<context:annotation-config/>
+	<context:component-scan base-package="Modele"></context:component-scan>
 </beans>
-
