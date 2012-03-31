@@ -3,7 +3,7 @@
 "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory name="">
+    <session-factory>
         <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="hibernate.connection.password">admin</property>
@@ -11,16 +11,16 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.search.autoregister_listeners">false</property>
-        <mapping class="Modele.FieldOwnedRecords" />
-        <mapping class="Modele.OwnRecord" />
-        <mapping class="Modele.Updatehistory" />
-        <mapping class="Modele.Evaluation" />
-        <mapping class="Modele.Soundtrack" />
-        <mapping class="Modele.Playlist" />
-        <mapping class="Modele.Comment" />
-        <mapping class="Modele.Field" />
-        <mapping class="Modele.Artist" />
-        <mapping class="Modele.AuthenticatedUser" />
-        <mapping class="Modele.Record" />
+        <mapping class="App.Modele.Evaluation" />
+        <mapping class="App.Modele.AuthenticatedUser" />
+        <mapping class="App.Modele.Field" />
+        <mapping class="App.Modele.Record" />
+        <mapping class="App.Modele.Comment" />
+        <mapping class="App.Modele.Artist" />
+        <mapping class="App.Modele.Updatehistory" />
+        <mapping class="App.Modele.Soundtrack" />
+        <mapping class="App.Modele.Playlist" />
+        <mapping class="App.Modele.OwnRecord" />
+        <mapping class="App.Modele.FieldOwnedRecords" />
     </session-factory>
 </hibernate-configuration>

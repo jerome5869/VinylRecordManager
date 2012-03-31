@@ -16,21 +16,21 @@
 		<property name="password" value="admin"/>
 	</bean>
 
-	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
 		<property name="annotatedClasses">
 			<list>
-				<value>Modele.FieldOwnedRecords</value>
-				<value>Modele.OwnRecord</value>
-				<value>Modele.Updatehistory</value>
-				<value>Modele.Evaluation</value>
-				<value>Modele.Soundtrack</value>
-				<value>Modele.Playlist</value>
-				<value>Modele.Comment</value>
-				<value>Modele.Field</value>
-				<value>Modele.Artist</value>
-				<value>Modele.AuthenticatedUser</value>
-        		<value>Modele.Record</value>
+				<value>App.Modele.FieldOwnedRecords</value>
+				<value>App.Modele.OwnRecord</value>
+				<value>App.Modele.Updatehistory</value>
+				<value>App.Modele.Evaluation</value>
+				<value>App.Modele.Soundtrack</value>
+				<value>App.Modele.Playlist</value>
+				<value>App.Modele.Comment</value>
+				<value>App.Modele.Field</value>
+				<value>App.Modele.Artist</value>
+				<value>App.Modele.AuthenticatedUser</value>
+        		<value>App.Modele.Record</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -40,10 +40,11 @@
 		</property>
 	</bean>
 	
-	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
-	<tx:annotation-driven transaction-manager="transactionManager" mode="aspectj"/>
+	
+	<tx:annotation-driven transaction-manager="transactionManager"/>
 	<context:annotation-config/>
-	<context:component-scan base-package="Modele"></context:component-scan>
+	<context:component-scan base-package="App"></context:component-scan>
 </beans>
