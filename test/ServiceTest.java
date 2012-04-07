@@ -4,8 +4,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import App.Modele.AuthenticatedUser;
-import App.Service.UserService;
+import app.model.AuthenticatedUser;
+import app.service.UserService;
+
 
 
 public class ServiceTest {
@@ -31,13 +32,13 @@ public class ServiceTest {
 
 	@Test
 	public void testSaveUser() {
-		AuthenticatedUser user=new AuthenticatedUser("username", "password", "mail", "firstname", "lastname", false, false);
+		AuthenticatedUser user=new AuthenticatedUser("username", "password", "mail", "firstname", "lastname","","","","", false, false);
 		userService.saveUser(user);
 	}
 
 	@Test
 	public void testUpdateUser() {
-		AuthenticatedUser user=new AuthenticatedUser("username", "password", "ddgdssgserh", "rthshrshreh", "lastname", false, false);
+		AuthenticatedUser user=new AuthenticatedUser("username", "password", "ddgdssgserh", "rthshrshreh", "lastname","","","","", false, false);
 		userService.updateUser(user); 
 	}
 		

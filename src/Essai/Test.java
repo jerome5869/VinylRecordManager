@@ -1,4 +1,4 @@
-package Essai;
+package essai;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;

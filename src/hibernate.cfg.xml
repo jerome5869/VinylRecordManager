@@ -11,16 +11,16 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.search.autoregister_listeners">false</property>
-        <mapping class="App.Modele.Evaluation" />
-        <mapping class="App.Modele.AuthenticatedUser" />
-        <mapping class="App.Modele.Field" />
-        <mapping class="App.Modele.Record" />
-        <mapping class="App.Modele.Comment" />
-        <mapping class="App.Modele.Artist" />
-        <mapping class="App.Modele.Updatehistory" />
-        <mapping class="App.Modele.Soundtrack" />
-        <mapping class="App.Modele.Playlist" />
-        <mapping class="App.Modele.OwnRecord" />
-        <mapping class="App.Modele.FieldOwnedRecords" />
+        <mapping class="app.model.OwnRecord" />
+        <mapping class="app.model.Field" />
+        <mapping class="app.model.Playlist" />
+        <mapping class="app.model.Soundtrack" />
+        <mapping class="app.model.Evaluation" />
+        <mapping class="app.model.Updatehistory" />
+        <mapping class="app.model.FieldOwnedRecords" />
+        <mapping class="app.model.Record" />
+        <mapping class="app.model.Comment" />
+        <mapping class="app.model.Artist" />
+        <mapping class="app.model.AuthenticatedUser" />
     </session-factory>
 </hibernate-configuration>

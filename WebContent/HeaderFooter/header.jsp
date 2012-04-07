@@ -43,14 +43,14 @@
         <ul class="nav">
           <li><a href="index.jsp">Accueil</a></li>
           <li><a href="collection.jsp">Collection</a></li>
-          <% 	if(session.getAttribute("nom") != null) out.println("<li><a href='profil.jsp'>Mon Profil</a></li>");
+          <% 	if(session.getAttribute("nom") != null) out.println("<li><a href='userProfil.html'>Mon Profil</a></li>");
           		else {
-          			out.println("<li><a href='login.jsp'>Me Connecter</a></li>");
-          			out.println("<li><a href='register.jsp'>M'Inscrire</a></li>"); 
+          			out.println("<li><a href='userLogin.html'>Me Connecter</a></li>");
+          			out.println("<li><a href='userRegister.html'>M'Inscrire</a></li>"); 
           		}%>
         </ul>
         <% if(session.getAttribute("nom") != null) out.println("<p class='navbar-text pull-right'>Connecté en tant que <a href='profil.jsp'>"+session.getAttribute("nom")+"</a>.  <a href='logout.jsp'>Déconnexion</a></p>");
-        else out.println("<p class='navbar-text pull-right'>Vous n'êtes pas connecté. <a href='login.jsp'>Connectez-vous</a></p>");%>
+        else out.println("<p class='navbar-text pull-right'>Vous n'êtes pas connecté. <a href='userLogin.html'>Connectez-vous</a></p>");%>
       </div><!--/.nav-collapse -->
     </div>
   </div>

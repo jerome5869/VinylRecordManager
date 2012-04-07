@@ -1,4 +1,4 @@
-package Essai;
+package essai;
 
 
 import org.hibernate.SessionFactory;

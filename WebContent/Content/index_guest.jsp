@@ -5,18 +5,18 @@
 	<div class="hero-unit">
 		<h1>Bienvenue</h1>
 		<p>Cette application permet de gérer votre bibliothèque de vinyles et d'en découvrir de nouveaux. Créez vos propres playlists et partagez-les avec vos amis ou tous les utilisateurs !</p>
-		<p><a class="btn btn-primary btn-large" href="register.jsp">Commencer &raquo;</a></p>
+		<p><a class="btn btn-primary btn-large" href="userRegister.html">Commencer &raquo;</a></p>
 	</div>
 	<div class="row-fluid">
 		<div class="span4">
 			<h2>Pas encore utilisateur ?</h2>
 			<p>Inscrivez-vous gratuitement et profiter de toutes les fonctionnalités de l'application.</p>
-			<p><a class="btn" href="register.jsp">M'inscrire &raquo;</a></p>
+			<p><a class="btn" href="userRegister.html">M'inscrire &raquo;</a></p>
 		</div><!--/span-->
 		<div class="span4">
 			<h2>Déjà utilisateur ?</h2>
 			<p>Connectez-vous et retrouvez votre bibliothèque, vos paramètres et toutes vos playlists.</p>
-			<p><a class="btn" href="login.jsp">Me connecter &raquo;</a></p>
+			<p><a class="btn" href="userLogin.html">Me connecter &raquo;</a></p>
 		</div><!--/span-->
 		<div class="span4">
 			<h2>Vous débutez ?</h2>

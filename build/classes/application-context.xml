@@ -3,10 +3,12 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:tx="http://www.springframework.org/schema/tx"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
 
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -20,17 +22,17 @@
 		<property name="dataSource" ref="dataSource"/>
 		<property name="annotatedClasses">
 			<list>
-				<value>App.Modele.FieldOwnedRecords</value>
-				<value>App.Modele.OwnRecord</value>
-				<value>App.Modele.Updatehistory</value>
-				<value>App.Modele.Evaluation</value>
-				<value>App.Modele.Soundtrack</value>
-				<value>App.Modele.Playlist</value>
-				<value>App.Modele.Comment</value>
-				<value>App.Modele.Field</value>
-				<value>App.Modele.Artist</value>
-				<value>App.Modele.AuthenticatedUser</value>
-        		<value>App.Modele.Record</value>
+				<value>app.model.FieldOwnedRecords</value>
+				<value>app.model.OwnRecord</value>
+				<value>app.model.Updatehistory</value>
+				<value>app.model.Evaluation</value>
+				<value>app.model.Soundtrack</value>
+				<value>app.model.Playlist</value>
+				<value>app.model.Comment</value>
+				<value>app.model.Field</value>
+				<value>app.model.Artist</value>
+				<value>app.model.AuthenticatedUser</value>
+        		<value>app.model.Record</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -45,6 +47,8 @@
 	</bean>
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>
+	<context:component-scan base-package="app" />
 	<context:annotation-config/>
-	<context:component-scan base-package="App"></context:component-scan>
+	<mvc:annotation-driven />
+	
 </beans>

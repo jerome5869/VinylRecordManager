@@ -1,4 +1,5 @@
-package App.Service;
+package app.service;
+
 
 
 import org.hibernate.Criteria;
@@ -7,7 +8,8 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import App.Modele.AuthenticatedUser;
+import app.model.AuthenticatedUser;
+
 
 @Service("UserService")
 @Transactional
@@ -23,7 +25,7 @@ public class UserServiceImpl implements UserService {
 		 crit.add( Restrictions.eq("password", pass));
 		 AuthenticatedUser user=(AuthenticatedUser) crit.uniqueResult();
 		 return (user!=null);
-		//return sessionFactory.getCurrentSession().createQuery("From authenticated_user Where username=:username and password=:password") != null;
+		
 	}
 
 	@Override

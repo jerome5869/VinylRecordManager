@@ -1,6 +1,8 @@
-package App.Service;
+package app.service;
 
-import App.Modele.AuthenticatedUser;
+import app.model.AuthenticatedUser;
+
+
 
 public interface UserService {
 
