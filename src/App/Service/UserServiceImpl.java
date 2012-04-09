@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public AuthenticatedUser userProfile(String username) {
-	return (AuthenticatedUser) sessionFactory.getCurrentSession().get(AuthenticatedUser.class,username);
+		return (AuthenticatedUser) sessionFactory.getCurrentSession().get(AuthenticatedUser.class,username);
 		
 	}
 

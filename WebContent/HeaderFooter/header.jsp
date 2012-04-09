@@ -42,7 +42,7 @@
       <div class="nav-collapse">
         <ul class="nav">
           <li><a href="index.jsp">Accueil</a></li>
-          <li><a href="collection.jsp">Collection</a></li>
+          <li><a href="collection.html">Collection</a></li>
           <% 	if(session.getAttribute("nom") != null) out.println("<li><a href='userProfil.html'>Mon Profil</a></li>");
           		else {
           			out.println("<li><a href='userLogin.html'>Me Connecter</a></li>");

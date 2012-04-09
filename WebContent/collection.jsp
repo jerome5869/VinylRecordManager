@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!-- header -->
 <jsp:include page="HeaderFooter/header.jsp"/>
@@ -24,41 +25,19 @@
 	<div class="span7 well">
 		<table  class="table">
 			<tr class="table tr">
-				<th class="table th">Album</th>
-				<th class="table th">Artiste</th>
 				<th class="table th">Matrix</th>
-				<th class="table th"> </th>
+				<th class="table th">Album</th>
+				<th class="table th">Artist</th>
+				<th class="table th"></th>
 			</tr>
+			 <c:forEach items="${collection}" var="record">  
 			<tr class="table tr">
-				<td class="table td">blabla</td>
-				<td class="table td">blabla</td>
-				<td class="table td">blabla</td>
+				<td class="table td"><c:out value="${record.matrixnumber}"/></td>
+				<td class="table td"><c:out value="${record.title}"/></td>
+				<td class="table td"><c:out value="${record.artistByArtist.firstname}"/></td>
 				<td class="table td"><a href="#">consulter</a></td>
 			</tr>
-			<tr class="table tr">
-				<td class="table td">blabla</td>
-				<td class="table td">blabla</td>
-				<td class="table td">blabla</td>
-				<td class="table td"><a href="#">consulter</a></td>
-			</tr>
-			<tr class="table tr">
-				<td class="table td">blabla</td>
-				<td class="table td">blabla</td>
-				<td class="table td">blabla</td>
-				<td class="table td"><a href="#">consulter</a></td>
-			</tr>
-			<tr class="table tr">
-				<td class="table td">blabla</td>
-				<td class="table td">blabla</td>
-				<td class="table td">blabla</td>
-				<td class="table td"><a href="#">consulter</a></td>
-			</tr>
-			<tr class="table tr">
-				<td class="table td">blabla</td>
-				<td class="table td">blabla</td>
-				<td class="table td">blabla</td>
-				<td class="table td"><a href="#">consulter</a></td>
-			</tr>
+			</c:forEach>
 		</table> 
 	</div>
 </div><!--/span-->

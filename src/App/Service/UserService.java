@@ -1,7 +1,7 @@
 package app.service;
 
 import app.model.AuthenticatedUser;
-
+	
 
 
 public interface UserService {

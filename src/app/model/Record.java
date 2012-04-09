@@ -94,7 +94,7 @@ public class Record implements java.io.Serializable {
 		this.artistByProducer = artistByProducer;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "artist", nullable = false)
 	public Artist getArtistByArtist() {
 		return this.artistByArtist;
