@@ -26,9 +26,9 @@ public class RecordController {
 	public ModelAndView getCollection()
 	{
 		List<Record> collection=record.getCollection();
-		for (int i=0;i<collection.size();i++){
+		/*for (int i=0;i<collection.size();i++){
 			System.out.println(collection.get(i).getMatrixnumber()+"bg");
-		}
+		}*/
 		ModelAndView mav5 =new ModelAndView("collection", "collection", collection);
 		return mav5;
 	}
@@ -38,12 +38,11 @@ public class RecordController {
 	{
 		List<OwnRecord> ownCollection=record.getOwnCollection((String) session.getAttribute("nom"));
 		System.out.println("klfskg");
-		for (int i=0;i<ownCollection.size();i++){
-			System.out.println(ownCollection.get(i)+"bg");
-		}
-		ModelAndView mav6=new ModelAndView("macollection", "Owncollection", ownCollection);
+		/*for (int i=0;i<ownCollection.size();i++){
+			System.out.println(ownCollection.get(i).getRecord().getMatrixnumber()+"bg");
+		}*/
+		ModelAndView mav6=new ModelAndView("macollection", "ownCollection", ownCollection);
 		return mav6;
 	}
-	
 	
 }

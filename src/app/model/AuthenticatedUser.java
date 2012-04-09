@@ -218,7 +218,7 @@ public class AuthenticatedUser implements java.io.Serializable {
 		this.evaluations = evaluations;
 	}
 
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "tracked_records", catalog = "hibernate", joinColumns = { @JoinColumn(name = "id_user", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "id_record", nullable = false, updatable = false) })
 	public Set<Record> getRecords() {
 		return this.records;

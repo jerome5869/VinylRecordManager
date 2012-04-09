@@ -15,16 +15,16 @@
 	<div class="span7 well">
 		<table  class="table">
 			<tr class="table tr">
-				<th class="table th">Album</th>
-				<th class="table th">Artiste</th>
 				<th class="table th">Matrix</th>
+				<th class="table th">Album</th>
+				<th class="table th">Artist</th>
 				<th class="table th"> </th>
 			</tr>
 			 <c:forEach items="${ownCollection}" var="ownrecord">  
 			<tr class="table tr">
-				<td class="table td">blabla</td>
-				<td class="table td">blabla</td>
-				<td class="table td">blabla</td>
+				<td class="table td"><c:out value="${ownrecord.record.matrixnumber}"/></td>
+				<td class="table td"><c:out value="${ownrecord.record.title}"/></td>
+				<td class="table td"><c:out value="${ownrecord.record.artistByArtist.firstname}"/></td>
 				<td class="table td"><a href="#">consulter</a></td>
 			</tr>
 			</c:forEach>

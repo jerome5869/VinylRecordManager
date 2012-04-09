@@ -3,6 +3,9 @@ package app.web;
 
 
 
+import java.util.List;
+import java.util.Set;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +17,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.ui.Model;
 
 import app.model.AuthenticatedUser;
+import app.model.OwnRecord;
+import app.model.Record;
 import app.service.UserService;
 
 
@@ -84,7 +89,7 @@ public class UserController {
 	@RequestMapping(value="userProfil.html", method = RequestMethod.GET)
 	public String getUserProfil(Model model, HttpSession session)
 	{
-		AuthenticatedUser authUser = user.userProfile((String) session.getAttribute("nom")); 
+		AuthenticatedUser authUser = user.getUser((String) session.getAttribute("nom")); 
 		model.addAttribute("userForm", new UserForm(authUser.getUsername(),authUser.getFirstname(),authUser.getLastname(),"", authUser.getMail(),"","", authUser.getBio(),authUser.getPicture(),authUser.getWebsite(),authUser.getSocialnetwork()));
 		System.out.println("chargemnent");
 		return "profil";
@@ -92,11 +97,25 @@ public class UserController {
 	
 	@RequestMapping(value="modifUser.html", method = RequestMethod.POST)
 	public ModelAndView modifuser(@ModelAttribute("userForm") UserForm userForm, HttpSession session) {
-		AuthenticatedUser authUser = user.userProfile((String) session.getAttribute("nom")); 
+		AuthenticatedUser authUser = user.getUser((String) session.getAttribute("nom")); 
 		user.updateUser(new AuthenticatedUser(userForm.getUsername(), authUser.getPassword(),userForm.getMail(), userForm.getFirstname(), userForm.getLastname(), userForm.getBio(), userForm.getPicture(), userForm.getWebsite(), userForm.getSocialnetwork(), false, false));
 		ModelAndView mav4=new ModelAndView("profil");
 		mav4.addObject("infosProfil", "Votre Profil à bien été mis à jour");
 		return mav4;
 	
+	}
+	
+	@RequestMapping(value="trackedList.html", method = RequestMethod.GET)
+	public ModelAndView getCollection(HttpSession session)
+	{
+		AuthenticatedUser authuser=user.getUser((String) session.getAttribute("nom"));
+		/*System.out.println(authuser.getRecords().toString());
+		System.out.println("klfssfssekg");*/
+		Set<Record> trackedList = authuser.getRecords();
+		/*for (int i=0;i<ownCollection.size();i++){
+			System.out.println(ownCollection.get(i).getRecord().getMatrixnumber()+"bg");
+		}*/
+		ModelAndView mav6=new ModelAndView("tracked", "trackedList", trackedList);
+		return mav6;
 	}
 }

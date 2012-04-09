@@ -45,7 +45,7 @@ public class ServiceTest {
 
 	@Test
 	public void testUserProfile() {
-		AuthenticatedUser a=userService.userProfile("jerome5869");
+		AuthenticatedUser a=userService.getUser("jerome5869");
 		System.out.println(a.getFirstname());
 	}
 

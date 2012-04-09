@@ -74,7 +74,7 @@ public class OwnRecord implements java.io.Serializable {
 		this.authenticatedUser = authenticatedUser;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_record", nullable = false, insertable = false, updatable = false)
 	public Record getRecord() {
 		return this.record;

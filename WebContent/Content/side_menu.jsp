@@ -9,7 +9,7 @@
          		<%	if(session.getAttribute("nom") != null) {
          			out.println("<li class='nav-header'>Bibliothèques</li>");
          			out.println("<li><a href='ownCollection.html'>Ma collection &raquo;</a></li>");
-         			out.println("<li><a href='tracked.jsp'>Vinyles suivis &raquo;</a></li>");
+         			out.println("<li><a href='trackedList.html'>Vinyles suivis &raquo;</a></li>");
          			out.println("<li class='nav-header'>Playlists</li>");
          			String[] s = (String[])session.getAttribute("playlists");
          			int i = 0;
