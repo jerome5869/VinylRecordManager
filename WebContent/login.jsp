@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!-- tests -->
 <% //session.removeAttribute("nom");
@@ -19,7 +19,7 @@ session.setAttribute("playlists", st);%>
 	<form:form action="validation.html" modelAttribute="loginForm" method="post">
 		<div class="well">
 			<h1>Connexion</h1>
-			<p>Utilisez votre nom d'utilisateur et votre mot de passe pour accéder à votre compte.</p>
+			<p>Utilisez votre nom d'utilisateur et votre mot de passe pour accÃ©der Ã  votre compte.</p>
 		</div>
 		<div class="span7 well">
 			<form:label path="userName">Nom d'utilisateur</form:label><form:input type="text" path="userName"/> 

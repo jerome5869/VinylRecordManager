@@ -1,27 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <div class="span9">
 	<div class="hero-unit">
-		<h1>Bienvenue</h1>
-		<p>Cette application permet de gérer votre bibliothèque de vinyles et d'en découvrir de nouveaux. Créez vos propres playlists et partagez-les avec vos amis ou tous les utilisateurs !</p>
-		<p><a class="btn btn-primary btn-large" href="userRegister.html">Commencer &raquo;</a></p>
+		<h1><spring:message code="label.bienvenue"/></h1>
+		<p><spring:message code="label.bienvenue1"/></p>
+		<p><a class="btn btn-primary btn-large" href="userRegister.html"><spring:message code="label.bienvenue2"/></a></p>
 	</div>
 	<div class="row-fluid">
 		<div class="span4">
-			<h2>Pas encore utilisateur ?</h2>
-			<p>Inscrivez-vous gratuitement et profiter de toutes les fonctionnalités de l'application.</p>
-			<p><a class="btn" href="userRegister.html">M'inscrire &raquo;</a></p>
+			<h2><spring:message code="label.titleguest1"/></h2>
+			<p><spring:message code="label.guest1"/></p>
+			<p><a class="btn" href="userRegister.html"><spring:message code="label.linkguest1"/></a></p>
 		</div><!--/span-->
 		<div class="span4">
-			<h2>Déjà utilisateur ?</h2>
-			<p>Connectez-vous et retrouvez votre bibliothèque, vos paramètres et toutes vos playlists.</p>
-			<p><a class="btn" href="userLogin.html">Me connecter &raquo;</a></p>
+			<h2><spring:message code="label.titleguest2"/></h2>
+			<p><spring:message code="label.guest2"/></p>
+			<p><a class="btn" href="userLogin.html"><spring:message code="label.linkguest2"/></a></p>
 		</div><!--/span-->
 		<div class="span4">
-			<h2>Vous débutez ?</h2>
-			<p>Vous êtes inscrit depuis peu et vous ne savez pas comment utiliser Vinyl Record Collection Manager ?</p>
-			<p><a class="btn" href="#">Suivre le guide &raquo;</a></p>
+			<h2><spring:message code="label.titleguest3"/></h2>
+			<p><spring:message code="label.guest3"/></p>
+			<p><a class="btn" href="#"><spring:message code="label.linkguest3"/></a></p>
 		</div><!--/span-->
 	</div><!--/row-->
 </div><!--/span-->

@@ -1,44 +1,45 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>    
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+
 <div class="span9">
 	<div class="well">
-		<h1>Profil</h1>
-		<p>Gérez ici votre profil utilisateur. Attention, ces données apparaitront sur votre profil public.</p>
+		<h1><spring:message code="label.profiltitle"/></h1>
+		<p><spring:message code="label.profiltext"/></p>
 	</div>
 	<form:form action="modifUser.html" modelAttribute="userForm" method="post">
 	<div class="span7 well">
-		<h2>Informations personnelles</h2>
+		<h2><spring:message code="label.formtitle1"/></h2>
 		<div class="span3">
-			<form:label path="username">Nom d'utilisateur</form:label><form:input type="text" path="username" readonly="true" value=""/>
-			<form:label path="lastname">Nom</form:label><form:input type="text" path="lastname" value=""/>
-			<form:label path="firstname">Prénom</form:label><form:input type="text" path="firstname" value=""/>
+			<form:label path="username"><spring:message code="label.formattribute1"/></form:label><form:input type="text" path="username" readonly="true" value=""/>
+			<form:label path="lastname"><spring:message code="label.formattribute2"/></form:label><form:input type="text" path="lastname" value=""/>
+			<form:label path="firstname"><spring:message code="label.formattribute3"/></form:label><form:input type="text" path="firstname" value=""/>
 		</div>
 		<div class="span3">
-			<form:label path="mail">Adresse mail</form:label><form:input type="text" path="mail" value=""/>
-			<form:label path="language">Langue</form:label>
+			<form:label path="mail"><spring:message code="label.formattribute4"/></form:label><form:input type="text" path="mail" value=""/>
+			<form:label path="language"><spring:message code="label.formattribute5"/></form:label>
 			<form:select path="language" size="1">
 				<form:option value="English"/>
-				<form:option value="Français"/>
+				<form:option value="FranÃ§ais"/>
 			</form:select>
 		</div>
 	</div>
 	<div class="span7 well">
-		<h2>Informations complémentaires</h2>
+		<h2><spring:message code="label.formtitle2"/></h2>
 		<div class="span3">
-			<form:label path="bio">Biographie</form:label><form:input type="text" path="bio" value=""/>
-			<form:label path="picture">Photo</form:label><form:input type="text" path="picture" value=""/>
+			<form:label path="bio"><spring:message code="label.formattribute6"/></form:label><form:input type="text" path="bio" value=""/>
+			<form:label path="picture"><spring:message code="label.formattribute7"/></form:label><form:input type="text" path="picture" value=""/>
 		</div>
 		<div class="span3">
-			<form:label path="website">Site internet</form:label><form:input type="text" path="website" value=""/>
-			<form:label path="socialnetwork">Réseau social</form:label><form:input type="text" path="socialnetwork" value=""/>
+			<form:label path="website"><spring:message code="label.formattribute8"/></form:label><form:input type="text" path="website" value=""/>
+			<form:label path="socialnetwork"><spring:message code="label.formattribute9"/></form:label><form:input type="text" path="socialnetwork" value=""/>
 		</div>
 	</div>
 	<div class="span7 well">
 		<div class="btn-group pull-right">
-  			<input type="submit" class="btn" value="Enregister">
-  			<a class="btn" href="userProfil.html">Recharger</a>
-  			<a class="btn" href="index.jsp">Accueil</a>
+  			<input type="submit" class="btn" value="<spring:message code="label.formbutton1"/>">
+  			<a class="btn" href="userProfil.html"><spring:message code="label.formbutton2"/></a>
+  			<a class="btn" href="index.jsp"><spring:message code="label.formbutton3"/></a>
 		</div>
 		${infosProfil}
 	</div>

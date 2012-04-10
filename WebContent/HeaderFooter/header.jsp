@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -38,19 +38,28 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <a class="brand" href="index.jsp">Vinyl Record Collection Manager</a>
+      <a class="brand" href="index.jsp"><spring:message code="label.titleapp"/></a>
       <div class="nav-collapse">
         <ul class="nav">
-          <li><a href="index.jsp">Accueil</a></li>
-          <li><a href="collection.html">Collection</a></li>
-          <% 	if(session.getAttribute("nom") != null) out.println("<li><a href='userProfil.html'>Mon Profil</a></li>");
-          		else {
-          			out.println("<li><a href='userLogin.html'>Me Connecter</a></li>");
-          			out.println("<li><a href='userRegister.html'>M'Inscrire</a></li>"); 
-          		}%>
+          <li><a href="index.jsp"><spring:message code="label.accueil"/></a></li>
+          <li><a href="collection.html"><spring:message code="label.collection"/></a></li>
+          <% if(session.getAttribute("nom") != null) {%>
+          		<li><a href='userProfil.html'><spring:message code='label.profil'/></a></li>
+          		<% } else {%>
+          			<li><a href='userLogin.html'><spring:message code="label.connect"/></a></li>
+          			<li><a href='userRegister.html'><spring:message code="label.register"/></a></li> 
+          		<%}%>
+          		<p class="navbar-text pull-right">
+    		<a href="?lang=fr">fr</a>
+    |		<a href="?lang=en">en</a>
+		</p>
         </ul>
-        <% if(session.getAttribute("nom") != null) out.println("<p class='navbar-text pull-right'>Connecté en tant que <a href='profil.jsp'>"+session.getAttribute("nom")+"</a>.  <a href='logout.jsp'>Déconnexion</a></p>");
-        else out.println("<p class='navbar-text pull-right'>Vous n'êtes pas connecté. <a href='userLogin.html'>Connectez-vous</a></p>");%>
+Current Locale : ${pageContext.response.locale}
+        <% if(session.getAttribute("nom") != null) {%>
+        	<p class='navbar-text pull-right'><spring:message code="label.connexion1"/> <a href='profil.jsp'>"+session.getAttribute("nom")+"</a>.  <a href='logout.jsp'><spring:message code='label.deconnexion'/></a></p>
+       <%} else {%>
+       		<p class='navbar-text pull-right'><spring:message code='label.connexion1'/>. <a href='userLogin.html'><spring:message code='label.connexion'/></a></p>
+       	<%} %>
       </div><!--/.nav-collapse -->
     </div>
   </div>
