@@ -38,10 +38,10 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <a class="brand" href="index.jsp"><spring:message code="label.titleapp"/></a>
+      <a class="brand" href="index.html"><spring:message code="label.titleapp"/></a>
       <div class="nav-collapse">
         <ul class="nav">
-          <li><a href="index.jsp"><spring:message code="label.accueil"/></a></li>
+          <li><a href="index.html"><spring:message code="label.accueil"/></a></li>
           <li><a href="collection.html"><spring:message code="label.collection"/></a></li>
           <% if(session.getAttribute("nom") != null) {%>
           		<li><a href='userProfil.html'><spring:message code='label.profil'/></a></li>
@@ -54,9 +54,8 @@
     |		<a href="?lang=en">en</a>
 		</p>
         </ul>
-Current Locale : ${pageContext.response.locale}
         <% if(session.getAttribute("nom") != null) {%>
-        	<p class='navbar-text pull-right'><spring:message code="label.connexion1"/> <a href='profil.jsp'>"+session.getAttribute("nom")+"</a>.  <a href='logout.jsp'><spring:message code='label.deconnexion'/></a></p>
+        	<p class='navbar-text pull-right'><spring:message code="label.connexion2"/> <a href='userProfil.html'><%= session.getAttribute("nom") %></a> <a href='logout.jsp'><spring:message code='label.deconnexion'/></a></p>
        <%} else {%>
        		<p class='navbar-text pull-right'><spring:message code='label.connexion1'/>. <a href='userLogin.html'><spring:message code='label.connexion'/></a></p>
        	<%} %>

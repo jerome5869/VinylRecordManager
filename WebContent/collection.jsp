@@ -10,23 +10,23 @@
 <!-- content -->
 <div class="span9">
 	<div class="well">
-		<h1>Collection</h1>
+		<h1><spring:message code="label.collection"/></h1>
 	</div>
 	<div class="span7 well">
 	<input type="text" name="recherche"></input>
 		<div class="btn-group pull-right">
-  			<button class="btn">Album</button>
-  			<button class="btn">Artiste</button>
-  			<button class="btn">Titre</button>
-  			<button class="btn">Matrix</button>
+  			<button class="btn"><spring:message code="label.colalbum"/></button>
+  			<button class="btn"><spring:message code="label.colartist"/></button>
+  			<button class="btn"><spring:message code="label.coltitre"/></button>
+  			<button class="btn"><spring:message code="label.colmatrix"/></button>
 		</div>
 	</div>
 	<div class="span7 well">
 		<table  class="table">
 			<tr class="table tr">
-				<th class="table th">Matrix</th>
-				<th class="table th">Album</th>
-				<th class="table th">Artist</th>
+				<th class="table th"><spring:message code="label.colmatrix"/></th>
+				<th class="table th"><spring:message code="label.colalbum"/></th>
+				<th class="table th"><spring:message code="label.colartist"/></th>
 				<th class="table th"></th>
 			</tr>
 			 <c:forEach items="${collection}" var="record">  
@@ -34,7 +34,7 @@
 				<td class="table td"><c:out value="${record.matrixnumber}"/></td>
 				<td class="table td"><c:out value="${record.title}"/></td>
 				<td class="table td"><c:out value="${record.artistByArtist.firstname}"/></td>
-				<td class="table td"><a href="#">consulter</a></td>
+				<td class="table td"><a href="#"><spring:message code="label.colconsult"/></a></td>
 			</tr>
 			</c:forEach>
 		</table> 

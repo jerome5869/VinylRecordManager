@@ -4,4 +4,4 @@
 	session.removeAttribute("playlists");
 	session.removeAttribute("language");%>
 	
-<jsp:forward page="index.jsp" />
+<jsp:forward page="index.html" />

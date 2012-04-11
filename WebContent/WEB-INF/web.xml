@@ -2,7 +2,7 @@
 <web-app>
 
   <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>welcome.jsp</welcome-file>
   </welcome-file-list>
   
   <context-param>

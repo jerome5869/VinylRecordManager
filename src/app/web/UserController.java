@@ -3,7 +3,7 @@ package app.web;
 
 
 
-import java.util.List;
+
 import java.util.Set;
 
 import javax.servlet.http.HttpSession;
@@ -17,10 +17,9 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.ui.Model;
 
 import app.model.AuthenticatedUser;
-import app.model.OwnRecord;
+import app.model.Playlist;
 import app.model.Record;
 import app.service.UserService;
-
 
 
 
@@ -30,25 +29,31 @@ public class UserController {
 	@Autowired
 	private UserService user;
 	
+	@RequestMapping(value="index.html", method = RequestMethod.GET)
+	public String getIndex(){
+		return "index";
+	}
+	
 	@RequestMapping(value="userLogin.html", method = RequestMethod.GET)
-	public String getLoginForm(Model model)
-	{
+	public String getLoginForm(Model model){
 		model.addAttribute("loginForm", new LoginForm());
-		System.out.println("bullshit");
 		return "login";
 	}
 
 	@RequestMapping(value="validation.html", method = RequestMethod.POST)
 	public ModelAndView Authentification(@ModelAttribute("loginForm") LoginForm loginForm, HttpSession session) {
 		if (user.login(loginForm.getUserName(), loginForm.getPassword())==true) {
-				session.setAttribute("nom", loginForm.getUserName());
-				System.out.println("kjvsskv");
-				return new ModelAndView("index");}
-				else {
-					System.out.println("dvdg");
-					ModelAndView mav= new ModelAndView("login", "loginForm", new LoginForm());
-					mav.addObject("message", "Mauvais Login ou Mauvais mot de passe");
-					return mav;}
+			session.setAttribute("nom", loginForm.getUserName());
+			AuthenticatedUser authuser= user.getUser(loginForm.getUserName());
+			Set<Playlist> playlists=authuser.getPlaylists();
+			session.setAttribute("playlists", playlists);
+			return new ModelAndView("index");
+		}
+		else {
+				ModelAndView mav= new ModelAndView("login", "loginForm", new LoginForm());
+				mav.addObject("message", "Mauvais Login ou Mauvais mot de passe");
+				return mav;
+		}
 	
 	}
 	
@@ -64,14 +69,11 @@ public class UserController {
 	public ModelAndView ajoutUser(@ModelAttribute("userForm") UserForm userForm, HttpSession session) {
 		
 		if (userForm.getUsername().isEmpty() || userForm.getPassword().isEmpty() || userForm.getPassword1().isEmpty() || userForm.getLastname().isEmpty() || userForm.getFirstname().isEmpty()){
-			
-			System.out.println("fgszgf");
 			ModelAndView mav2= new ModelAndView("register", "userForm", new UserForm());
 			mav2.addObject("errorEmptyfield", "Tous les champs obligatoires n'ont pas été remplis");
 			return mav2;
 		}
 		else if ((userForm.getPassword().equals(userForm.getPassword1()))==false){
-			System.out.println("cfsfvdv");
 			ModelAndView mav3= new ModelAndView("register", "userForm", new UserForm());
 			mav3.addObject("errorPassword", "Passwords non identique");
 			return mav3;
@@ -80,7 +82,6 @@ public class UserController {
 			AuthenticatedUser userAuth=new AuthenticatedUser(userForm.getUsername(), userForm.getPassword(), userForm.getMail(), userForm.getFirstname(), userForm.getLastname(), userForm.getBio(), userForm.getPicture(), userForm.getWebsite(), userForm.getSocialnetwork(), false, false);
 			user.saveUser(userAuth);
 			session.setAttribute("nom", userForm.getUsername());
-			System.out.println("new user");
 			return new ModelAndView("index");
 		}
 	
@@ -91,7 +92,6 @@ public class UserController {
 	{
 		AuthenticatedUser authUser = user.getUser((String) session.getAttribute("nom")); 
 		model.addAttribute("userForm", new UserForm(authUser.getUsername(),authUser.getFirstname(),authUser.getLastname(),"", authUser.getMail(),"","", authUser.getBio(),authUser.getPicture(),authUser.getWebsite(),authUser.getSocialnetwork()));
-		System.out.println("chargemnent");
 		return "profil";
 	}
 	
@@ -109,13 +109,9 @@ public class UserController {
 	public ModelAndView getCollection(HttpSession session)
 	{
 		AuthenticatedUser authuser=user.getUser((String) session.getAttribute("nom"));
-		/*System.out.println(authuser.getRecords().toString());
-		System.out.println("klfssfssekg");*/
 		Set<Record> trackedList = authuser.getRecords();
-		/*for (int i=0;i<ownCollection.size();i++){
-			System.out.println(ownCollection.get(i).getRecord().getMatrixnumber()+"bg");
-		}*/
 		ModelAndView mav6=new ModelAndView("tracked", "trackedList", trackedList);
 		return mav6;
 	}
+	
 }

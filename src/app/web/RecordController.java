@@ -29,20 +29,14 @@ public class RecordController {
 		/*for (int i=0;i<collection.size();i++){
 			System.out.println(collection.get(i).getMatrixnumber()+"bg");
 		}*/
-		ModelAndView mav5 =new ModelAndView("collection", "collection", collection);
-		return mav5;
+		return new ModelAndView("collection", "collection", collection);
 	}
 	
 	@RequestMapping(value="ownCollection.html", method = RequestMethod.GET)
 	public ModelAndView getCollection(HttpSession session)
 	{
 		List<OwnRecord> ownCollection=record.getOwnCollection((String) session.getAttribute("nom"));
-		System.out.println("klfskg");
-		/*for (int i=0;i<ownCollection.size();i++){
-			System.out.println(ownCollection.get(i).getRecord().getMatrixnumber()+"bg");
-		}*/
-		ModelAndView mav6=new ModelAndView("macollection", "ownCollection", ownCollection);
-		return mav6;
+		return new ModelAndView("macollection", "ownCollection", ownCollection);
 	}
 	
 }

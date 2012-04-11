@@ -39,7 +39,7 @@
 		<div class="btn-group pull-right">
   			<input type="submit" class="btn" value="<spring:message code="label.formbutton1"/>">
   			<a class="btn" href="userProfil.html"><spring:message code="label.formbutton2"/></a>
-  			<a class="btn" href="index.jsp"><spring:message code="label.formbutton3"/></a>
+  			<a class="btn" href="index.html"><spring:message code="label.formbutton3"/></a>
 		</div>
 		${infosProfil}
 	</div>

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!-- tests -->
 <% //session.removeAttribute("nom");
@@ -18,21 +18,21 @@ session.setAttribute("playlists", st);%>
 <div class="span9">
 	<form:form action="validation.html" modelAttribute="loginForm" method="post">
 		<div class="well">
-			<h1>Connexion</h1>
-			<p>Utilisez votre nom d'utilisateur et votre mot de passe pour accéder à votre compte.</p>
+			<h1><spring:message code="label.connexion3"/></h1>
+			<p><spring:message code="label.txtconnexion"/></p>
 		</div>
 		<div class="span7 well">
-			<form:label path="userName">Nom d'utilisateur</form:label><form:input type="text" path="userName"/> 
-			<form:label path="password">Mot de passe</form:label><form:input type="password" path="password"/>
+			<form:label path="userName"><spring:message code="label.formlogin1"/></form:label><form:input type="text" path="userName"/> 
+			<form:label path="password"><spring:message code="label.formlogin2"/></form:label><form:input type="password" path="password"/>
 		</div>
 		<div class="span7 well">
 			<div class="btn-toolbar pull-right">
 				<div class="btn-group">
-					<a class="btn" href="register.jsp">Je n'ai pas de compte utilisateur &raquo;</a>
+					<a class="btn" href="userRegister.html"><spring:message code="label.txtconnexion2"/> &raquo;</a>
 				</div>
 				<div class="btn-group">
 	  				<input type="submit" class="btn" value="Valider">
-	  				<a class="btn" href="userRegister.html">Accueil</a>
+	  				<a class="btn" href="index.html"><spring:message code="label.accueil"/></a>
 				</div>
 				${message}
 			</div>

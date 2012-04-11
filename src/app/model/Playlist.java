@@ -23,6 +23,10 @@ import javax.persistence.Table;
 @Table(name = "playlist", catalog = "hibernate")
 public class Playlist implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6025134299332412440L;
 	private Integer idPlaylist;
 	private String name;
 	private boolean visibility;
@@ -75,7 +79,7 @@ public class Playlist implements java.io.Serializable {
 		this.visibility = visibility;
 	}
 
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "playlist_user", catalog = "hibernate", joinColumns = { @JoinColumn(name = "id_playlist", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "id_user", nullable = false, updatable = false) })
 	public Set<AuthenticatedUser> getAuthenticatedUsers() {
 		return this.authenticatedUsers;
@@ -85,7 +89,7 @@ public class Playlist implements java.io.Serializable {
 		this.authenticatedUsers = authenticatedUsers;
 	}
 
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "playlist_records", catalog = "hibernate", joinColumns = { @JoinColumn(name = "id_playlist", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "id_record", nullable = false, updatable = false) })
 	public Set<Record> getRecords() {
 		return this.records;
